@@ -15,7 +15,6 @@ Install MSSQL Server
 
 You can run the following commands to install MSSQL server.
 
-
 ```
 oc new-project mssql
 oc create -f restrictedfsgroupscc.yaml
@@ -30,7 +29,7 @@ For RPA Server to access the MSSQL server service, the cluster internal IP addre
 To create the Nodeport, you can run the following command: 
 ```
 oc expose service mssql-service --type=NodePort --port=32433
-'''
+```
 
 You can verify your MSSQL Server installation by running the following command (assuming you use the same port number from the above): 
 ```
