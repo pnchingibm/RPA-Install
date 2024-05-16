@@ -25,6 +25,18 @@ oc apply -f storage.yaml
 oc apply -f sqldeployment.yaml
 ```
 
+For RPA Server to access the MSSQL server service, the cluster internal IP address can be used. However, if you want to verify if the MSSQL server is installed correctly, you will need to create a Nodeport for the service. 
+
+To create the Nodeport, you can run the following command: 
+```
+oc expose service mssql-service --type=NodePort --port=32433
+'''
+
+You can verify your MSSQL Server installation by running the following command (assuming you use the same port number from the above): 
+```
+./verify-sqlsvr.sh
+```
+
 
 Configure LDAP connection
 
