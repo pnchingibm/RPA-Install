@@ -10,8 +10,8 @@ To setup an RPA server environment on your own OCP cluster, you will need to do 
     5. Install an LDAP server.
     6. Configure LDAP as Identify Provider for CPFS (Cloud Pak Foundational Service).
 
-<span style="font-size: 20px;"><b>TInstall MSSQL Server</b></span>
-
+<span style="font-size: 22px;"><b>Install MSSQL Server</b></span>
+---
    - Create a namespace for MSSQL server
    - Create security context constaints
    - Apply security context group
@@ -44,7 +44,7 @@ You can verify your MSSQL Server installation by running the following command (
 
 
 Configure LDAP connection
-
+<span style="font-size: 22px;"><b>Configure LDAP connection</b></span>
 
 Base DN: dc=example,dc=org
 Connection DN: cn=admin,dc=example,dc=org
