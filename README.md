@@ -1,4 +1,4 @@
-# RPA-Install
+# Build a fully functional RPA Server Environment
 
 The documentation for installing RPA Server on OpenShift does not cover all the supporting compoents and configurations to build a fully functional environment. The information and artifacts provided in this repo help you to build a functional RPA server environment. 
 
