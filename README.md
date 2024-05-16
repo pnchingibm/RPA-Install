@@ -1,22 +1,23 @@
-# Build a fully functional RPA Server Environment
+# Build a Fully Functional RPA Server Environment
 
 The documentation for installing RPA Server on OpenShift does not cover all the supporting compoents and configurations to build a fully functional environment. The information and artifacts provided in this repo help you to build a functional RPA server environment. 
 
 To setup an RPA server environment on your own OCP cluster, you will need to do the following:
-  1. Install MQ Server. The detail installation information is in the documentation.
-  2. Install an MSSQL server.
-  3. Install RPA Operator.
-  4. Create an RPA Instance.
-  5. Install an LDAP server.
-  6. Configure LDAP as Identify Provider for CPFS (Cloud Pak Foundational Service).
+    1. Install MQ Server. The detail installation information is in the documentation.
+    2. Install an MSSQL server.
+    3. Install RPA Operator.
+    4. Create an RPA Instance.
+    5. Install an LDAP server.
+    6. Configure LDAP as Identify Provider for CPFS (Cloud Pak Foundational Service).
 
-Install MSSQL Server
-  - Create a namespace for MSSQL server
-  - Create security context constaints
-  - Apply security context group
-  - Create secret for login credential
-  - Create PVc for the database
-  - Create MSSQL Deployment and Service
+<span style="font-size: 20px;"><b>TInstall MSSQL Server</b></span>
+
+   - Create a namespace for MSSQL server
+   - Create security context constaints
+   - Apply security context group
+   - Create secret for login credential
+   - Create PVc for the database
+   - Create MSSQL Deployment and Service
 
 You can run the following commands to install MSSQL server.
 
