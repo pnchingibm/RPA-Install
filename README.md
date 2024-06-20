@@ -12,7 +12,7 @@ To setup an RPA server environment on your own OCP cluster, you will need to do 
 
 <span style="font-size: 22px;"><b>Install MQ Server</b></span>
 ---
-When installing MQ Operator, the MQ version must be aligned with the RPA version you will be installing. The following link provides the version references. 
+When installing MQ Operator, the MQ version must be aligned with the RPA version you will be installing. The following link provides the version references.  
     https://www.ibm.com/docs/en/rpa/23.0?topic=openshift-versioning-reference  
     https://www.ibm.com/docs/en/rpa/21.0?topic=openshift-versioning-reference  
 
@@ -28,7 +28,7 @@ MSSQL Server installation consists of the following steps:
    - Create PVC for the database.  
    - Create MSSQL Deployment and Service.   
 
-You can run the following commands to complete the above steps.
+You can run the following commands or execute the mssql_install.sh script to complete the above steps.
 ```
 oc new-project mssql
 oc create -f restrictedfsgroupscc.yaml
