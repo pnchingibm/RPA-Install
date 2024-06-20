@@ -13,7 +13,7 @@ To setup an RPA server environment on your own OCP cluster, you will need to do 
 <span style="font-size: 22px;"><b>Install MQ Server</b></span>
 ---
 When installing MQ Operator, the MQ version must be aligned with the RPA version. The following link provides the version references. 
-    https://www.ibm.com/docs/en/rpa/23.0?topic=openshift-versioning-reference .
+    https://www.ibm.com/docs/en/rpa/23.0?topic=openshift-versioning-reference  
     https://www.ibm.com/docs/en/rpa/21.0?topic=openshift-versioning-reference
 
 <span style="font-size: 22px;"><b>Install MSSQL Server</b></span>
