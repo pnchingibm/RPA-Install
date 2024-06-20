@@ -50,6 +50,24 @@ You can verify your MSSQL Server installation by running the following command (
 ./verify-sqlsvr.sh
 ```
 
+<span style="font-size: 22px;"><b>Create RPA Server Instance</b></span>
+---
+Creating an RPA Server instance is fairly staight forward. However, you will need to identify the license value and use for the MQ version you installed. 
+https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqibmcomv1beta1-licensing-reference
+
+spec:
+  license:
+    accept: true
+  createRoutes: false
+  webDriverUpdates:
+    enabled: true
+  systemQueueProvider:
+    highAvailability: false
+    queueManagerLicense: L-RJON-C7QG3S
+    queueManagerLicenseUsage: Production
+    queueManagerVersion: 9.2.5.0-r3
+
+    
 <span style="font-size: 22px;"><b>Configure LDAP connection</b></span>
 ---
 Please refer to https://github.com/pnchingibm/Openldap-OCP for OpenLDAP deployment on OpenShift.
