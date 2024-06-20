@@ -13,20 +13,20 @@ To setup an RPA server environment on your own OCP cluster, you will need to do 
 <span style="font-size: 22px;"><b>Install MQ Server</b></span>
 ---
 When installing MQ Operator, the MQ version must be aligned with the RPA version you will be installing. The following link provides the version references.  
-    https://www.ibm.com/docs/en/rpa/23.0?topic=openshift-versioning-reference  
-    https://www.ibm.com/docs/en/rpa/21.0?topic=openshift-versioning-reference  
+> https://www.ibm.com/docs/en/rpa/23.0?topic=openshift-versioning-reference  
+> https://www.ibm.com/docs/en/rpa/21.0?topic=openshift-versioning-reference  
 
 There is no need to create a MQ manager. A MQ manager will be automaticially created by a RPA Server operand.      
 
 <span style="font-size: 22px;"><b>Install MSSQL Server</b></span>
 ---
 MSSQL Server installation consists of the following steps: 
-   - Create a namespace for MSSQL server.  
-   - Create security context constaints.  
-   - Apply security context group.  
-   - Create secret for login credential.  
-   - Create PVC for the database.  
-   - Create MSSQL Deployment and Service.   
+   >- Create a namespace for MSSQL server.  
+   >- Create security context constaints.  
+   >- Apply security context group.  
+   >- Create secret for login credential.  
+   >- Create PVC for the database.  
+   >- Create MSSQL Deployment and Service.   
 
 You can run the following commands or execute the mssql_install.sh script to complete the above steps.
 ```
@@ -52,6 +52,13 @@ You can verify your MSSQL Server installation by running the following command (
 
 <span style="font-size: 22px;"><b>Configure LDAP connection</b></span>
 ---
+Please refer to https://github.com/pnchingibm/Openldap-OCP for OpenLDAP deployment on OpenShift.
+RPA Server requires SSO authentication. You will need to create an LDAP connection. The details for creating an LDAP connection can be found in the follwoing documenation:
+
+> https://www.ibm.com/docs/en/cloud-paks/foundational-services/4.6?topic=users-configuring-ldap-connection
+
+Specificially when creating connection to OpenLDAP, you need to select server type as "custom" and apply the following values. 
+
 ```
 Base DN: dc=example,dc=org  
 Connection DN: cn=admin,dc=example,dc=org  
