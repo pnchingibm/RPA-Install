@@ -55,10 +55,11 @@ You can verify your MSSQL Server installation by running the following command (
 Creating an RPA Server instance is mostly staightforward. The main taks is to create a yaml file for the RPA instance. However, configuriing the license value and for the MQ version you installed and confiuring self-signed CA certificate. 
 
 MQ License Configuration
-1. Identify the version of the installed MQ instance. Use the following link the identify the license information and usage. The following is an example of the MQ License section.
+1. Identify the version of the installed MQ instance. Use the following link the identify the license information and usage. 
    
 &nbsp;&nbsp;&nbsp;&nbsp; https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqibmcomv1beta1-licensing-reference
 
+2. Configure the YAML file section using the following an example.
 ```
 spec:
   license:
@@ -72,7 +73,13 @@ spec:
     queueManagerLicenseUsage: Production
     queueManagerVersion: 9.2.5.0-r3
 ```
-    
+Certificate Configuration
+If default certificates can be used, this configuration is not required. However, if self-signed CA or sub-CA is required, the following steps are required. 
+&nbsp;&nbsp;&nbsp;&nbsp; 1. Create an Issuer
+&nbsp;&nbsp;&nbsp;&nbsp; 2. Create a Root CA and secret
+&nbsp;&nbsp;&nbsp;&nbsp; 3. Create a Sub-CA and secrete (Opotional)
+&nbsp;&nbsp;&nbsp;&nbsp; 4. Configure the YAML file using the following example.
+
 <span style="font-size: 22px;"><b>Configure LDAP connection</b></span>
 ---
 Please refer to https://github.com/pnchingibm/Openldap-OCP for OpenLDAP deployment on OpenShift.
