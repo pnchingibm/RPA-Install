@@ -75,15 +75,17 @@ spec:
 ```
 Certificate Configuration  
 If default certificates can be used, this configuration is not required. However, if self-signed CA or sub-CA is required, the following steps are required.   
-&nbsp;&nbsp;&nbsp;&nbsp; 1. Create an Issuer in OCP 
+
+&nbsp;&nbsp;&nbsp;&nbsp; 1. Create a Root CA and secret  
 ```
 openssl genpkey -algorithm RSA -out ca.key -aes256
 openssl req -new -key ca.key -out ca.csr
 openssl req -x509 -key ca.key -in ca.csr -out ca.crt -days 3650
 oc create secret generic ca-cert-secret --from-file=tls.crt=./ca.crt --from-file=tls.key=./ca.key
 ```
-
+&nbsp;&nbsp;&nbsp;&nbsp; 2. Create an Issuer in OCP 
 ```
+oc create -f - <<EOF
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
@@ -93,10 +95,12 @@ spec:
   ca:
     secretName: ca-cert-secret
     secretkey: tls.crt
+EOF
 ```
-Run the following command to make sure the issuer was created successfully. 
+
+      Run the following commands to make sure the issuer was created successfully. 
 ```
-oc get issuer
+oc apply -f oc get issuer
 ```
 
 &nbsp;&nbsp;&nbsp;&nbsp; 2. Create a Root CA and secret  
