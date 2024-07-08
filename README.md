@@ -56,7 +56,7 @@ Creating an RPA Server instance is mostly staightforward. The main taks is to cr
 
 MQ License Configuration
 1. Identify the version of the installed MQ instance. Use the following link the identify the license information and usage. The following is an example of the MQ License section.
-&nbsp;&nbsp;&nbsp;&nbsp;- https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqibmcomv1beta1-licensing-reference
+&nbsp;&nbsp;&nbsp;&nbsp;  https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqibmcomv1beta1-licensing-reference
 
 ```
 spec:
@@ -77,7 +77,7 @@ spec:
 Please refer to https://github.com/pnchingibm/Openldap-OCP for OpenLDAP deployment on OpenShift.
 RPA Server requires SSO authentication. You will need to create an LDAP connection. The details for creating an LDAP connection can be found in the follwoing documenation:
 
-&nbsp;&nbsp;&nbsp;&nbsp; https://www.ibm.com/docs/en/cloud-paks/foundational-services/4.6?topic=users-configuring-ldap-connection
+&nbsp;&nbsp;&nbsp;&nbsp;  https://www.ibm.com/docs/en/cloud-paks/foundational-services/4.6?topic=users-configuring-ldap-connection
 
 Specificially when creating connection to OpenLDAP, you need to select server type as "custom" and apply the following values. 
 
