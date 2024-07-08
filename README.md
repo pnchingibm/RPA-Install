@@ -55,8 +55,8 @@ You can verify your MSSQL Server installation by running the following command (
 Creating an RPA Server instance is mostly staightforward. The main taks is to create a yaml file for the RPA instance. However, configuriing the license value and for the MQ version you installed and confiuring self-signed CA certificate. 
 
 MQ License Configuration
-1. Identify the version of the installed MQ instance. Use the following link the identify the license information and usage. The following is an example of the MQ License section. 
-&nbsp;&nbsp;&nbsp;&nbsp; https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqibmcomv1beta1-licensing-reference
+1. Identify the version of the installed MQ instance. Use the following link the identify the license information and usage. The following is an example of the MQ License section.
+&nbsp;&nbsp;&nbsp;&nbsp;- https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqibmcomv1beta1-licensing-reference
 
 ```
 spec:
