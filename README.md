@@ -73,9 +73,29 @@ spec:
     queueManagerLicenseUsage: Production
     queueManagerVersion: 9.2.5.0-r3
 ```
-Certificate Configuration
+Certificate Configuration  
 If default certificates can be used, this configuration is not required. However, if self-signed CA or sub-CA is required, the following steps are required.   
-&nbsp;&nbsp;&nbsp;&nbsp; 1. Create an Issuer  
+&nbsp;&nbsp;&nbsp;&nbsp; 1. Create an Issuer in OCP 
+```
+openssl genpkey -algorithm RSA -out ca.key -aes256
+openssl req -new -key ca.key -out ca.csr
+openssl req -x509 -key ca.key -in ca.csr -out ca.crt -days 3650
+oc update  secret generic ca-cert-secret --from-file=tls.crt=./ca.crt --from-file=tls.key=./ca.key
+```
+
+```
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: my-issuer
+  namespace: <your namespace>
+spec:
+  ca:
+    secretName: ca-cert-secret
+    secretkey: tls.crt
+```
+
+
 &nbsp;&nbsp;&nbsp;&nbsp; 2. Create a Root CA and secret  
 &nbsp;&nbsp;&nbsp;&nbsp; 3. Create a Sub-CA and secrete (Opotional)  
 &nbsp;&nbsp;&nbsp;&nbsp; 4. Configure the YAML file using the following example.  
