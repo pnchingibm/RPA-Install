@@ -94,7 +94,10 @@ spec:
     secretName: ca-cert-secret
     secretkey: tls.crt
 ```
-
+Run the following command to make sure the issuer was created successfully. 
+```
+oc get issuer
+```
 
 &nbsp;&nbsp;&nbsp;&nbsp; 2. Create a Root CA and secret  
 &nbsp;&nbsp;&nbsp;&nbsp; 3. Create a Sub-CA and secrete (Opotional)  
