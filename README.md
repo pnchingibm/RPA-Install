@@ -56,7 +56,8 @@ Creating an RPA Server instance is mostly staightforward. The main taks is to cr
 
 MQ License Configuration
 1. Identify the version of the installed MQ instance. Use the following link the identify the license information and usage. The following is an example of the MQ License section.
-&nbsp;&nbsp;&nbsp;&nbsp;  https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqibmcomv1beta1-licensing-reference
+&nbsp;&nbsp;&nbsp;&nbsp; https://www.ibm.com/docs/en/ibm-mq/9.2?topic=mqibmcomv1beta1-licensing-reference
+&nbsp;&nbsp;&nbsp;&nbsp; https://www.ibm.com/docs/en/rpa/23.0?topic=openshift-versioning-reference
 
 ```
 spec:
