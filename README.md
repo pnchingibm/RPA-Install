@@ -80,7 +80,7 @@ If default certificates can be used, this configuration is not required. However
 openssl genpkey -algorithm RSA -out ca.key -aes256
 openssl req -new -key ca.key -out ca.csr
 openssl req -x509 -key ca.key -in ca.csr -out ca.crt -days 3650
-oc update  secret generic ca-cert-secret --from-file=tls.crt=./ca.crt --from-file=tls.key=./ca.key
+oc create secret generic ca-cert-secret --from-file=tls.crt=./ca.crt --from-file=tls.key=./ca.key
 ```
 
 ```
