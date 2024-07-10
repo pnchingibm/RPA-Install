@@ -50,6 +50,14 @@ You can verify your MSSQL Server installation by running the following command (
 ./verify-sqlsvr.sh
 ```
 
+Create database connection secrete for RPA Server
+1. First identify worker node IP address the SQL Server is running on from MSSQL Pod details
+2. construct the connection strings and create the secret
+   
+```
+oc create secret generic rpa-db-secret --from-literal=AddressContext='Data Source=<worker node IP>,30998;Initial Catalog=ADDRESS;User ID=sa;Password=Sql2019isfast;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False' --from-literal=AutomationContext='Data Source=<worker node IP>,30998;Initial Catalog=AUTOMATION;User ID=sa;Password=Sql2019isfast;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False' --from-literal=KnowledgeBase='Data Source=<worker node IP>,30998;Initial Catalog=KNOWLEDGE;User ID=sa;Password=Sql2019isfast;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False' --from-literal=WordnetContext='Data Source=192.168.252.16,30998;Initial Catalog=WORDNET;User ID=sa;Password=Sql2019isfast;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False' --from-literal=AuditContext='Data Source=1<worker node IP>,30998;Initial Catalog=AUDIT;User ID=sa;Password=Sql2019isfast;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False'
+```
+
 <span style="font-size: 22px;"><b>Create RPA Server Instance</b></span>
 ---
 Creating an RPA Server instance is mostly staightforward. The main taks is to create a yaml file for the RPA instance. However, configuriing the license value and for the MQ version you installed and confiuring self-signed CA certificate. 
