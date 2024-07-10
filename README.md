@@ -98,7 +98,8 @@ spec:
 EOF
 ```
 
-      Run the following commands to make sure the issuer was created successfully. 
+ Run the following commands to make sure the issuer was created successfully. 
+ 
 ```
 oc apply -f oc get issuer
 ```
@@ -112,7 +113,15 @@ openssl req -new -key subca.key -out subca.csr
 openssl x509 -req -in subca.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out subca.crt -days 365 -extfile <(printf "basicConstraints=CA:TRUE\nkeyUsage=critical,digitalSignature,cRLSign,keyCertSign\nsubjectKeyIdentifier=hash\nauthorityKeyIdentifier=keyid:always,issuer")
 create secret generic subca-cert-tls-secret --from-file=tls.crt=./subca.crt --from-file=tls.key=./subca.key
 ```
-&nbsp;&nbsp;&nbsp;&nbsp; 4. Configure the YAML file using the following example.  
+&nbsp;&nbsp;&nbsp;&nbsp; 4. Configure RPA Server YAML file using the following example.  
+```
+  tls:
+    caSecret:
+      key: tls.crt
+      secretName: subca-cert-tls-secret
+    issuerRef:
+      name: my-issuer
+```
 
 <span style="font-size: 22px;"><b>Configure LDAP connection</b></span>
 ---
