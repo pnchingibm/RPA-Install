@@ -74,7 +74,7 @@ spec:
     queueManagerVersion: 9.2.5.0-r3
 ```
 Certificate Configuration  
-If default certificates can be used, this configuration is not required. However, if self-signed CA or sub-CA is required, the following steps are required.   
+In many customer deployment situations, the product generated root CA may not be accpetable. Customers often use their own root CA or Sub-CA to sign certificates. if self-signed root CA or sub-CA is required, the following steps are required, otherwise these steps are optional.  
 
 &nbsp;&nbsp;&nbsp;&nbsp; 1. Create a Root CA and secret  
 ```
@@ -103,8 +103,15 @@ EOF
 oc apply -f oc get issuer
 ```
 
-&nbsp;&nbsp;&nbsp;&nbsp; 2. Create a Root CA and secret  
 &nbsp;&nbsp;&nbsp;&nbsp; 3. Create a Sub-CA and secrete (Opotional)  
+When a root CA is used for certificate signing, the root CA key must be provided. However, in an enterprise scenairo, the root CA key is controlled by the security team and using the key in RPA may not be possible. In such case, the security team can issue a Sub-CA and the key. To similar this scenairo, the following provides steps to generate a Sub-CA and the key. 
+
+```
+openssl genpkey -algorithm RSA -out subca.key -aes256
+openssl req -new -key subca.key -out subca.csr
+openssl x509 -req -in subca.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out subca.crt -days 365 -extfile <(printf "basicConstraints=CA:TRUE\nkeyUsage=critical,digitalSignature,cRLSign,keyCertSign\nsubjectKeyIdentifier=hash\nauthorityKeyIdentifier=keyid:always,issuer")
+create secret generic subca-cert-tls-secret --from-file=tls.crt=./subca.crt --from-file=tls.key=./subca.key
+```
 &nbsp;&nbsp;&nbsp;&nbsp; 4. Configure the YAML file using the following example.  
 
 <span style="font-size: 22px;"><b>Configure LDAP connection</b></span>
